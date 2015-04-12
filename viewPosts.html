@@ -9,9 +9,36 @@
 <body>
 	<!-- If logged in -->
 	<h1>View messages</h1>
+	<h2>Menu</h2>
+	<table>
+		<tr>
+			<td>Number of posts per page: </td>
+			<td><input type="number" min="1" max="5" step="1" id="inputMaxPosts"/></td>
+		</tr>
+
+		<tr>
+			<td>Page: </td>
+			<td>
+				<div style="display:inline-block" onclick="appendMaxPosts(1);">1</div>
+				<div style="display:inline-block" onclick="appendMaxPosts(2);">2</div>
+				<div style="display:inline-block" onclick="appendMaxPosts(3);">3</div>
+				<div style="display:inline-block" onclick="appendMaxPosts(4);">4</div>
+				<div style="display:inline-block" onclick="appendMaxPosts(5);">5</div>
+			</td>
+		</tr>
+	</table>
+
+	<h2>Viewer</h2>
 	<p>Hello, how are you?</p>
 	<p>I'm fine.</p>
 
+	<script language="javascript">
+		function appendMaxPosts(page)
+		{
+			var maxPosts = document.getElementById('inputMaxPosts').value;
+			window.location = "viewPosts.html?page=" + page + "&maxPosts=" + maxPosts;
+		}
+	</script>
 
 	<!-- Else, redirect -->
 	<script language="javascript"> //window.location="identification.html"; </script>
